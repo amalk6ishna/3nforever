@@ -1,12 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
-
 :root {
     --bg-color: #121212;
-    --accent-color: #1DB954;
     --card-bg: #181818;
     --card-hover: #282828;
     --text-main: #FFFFFF;
-    --text-sub: #A7A7A7;
+    --text-sub: #b3b3b3;
+    --accent-color: #1ed760; /* Spotify's exact vibrant green */
     --player-bg: #000000;
 }
 
@@ -14,54 +12,82 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
 }
 
 body {
     background-color: var(--bg-color);
     color: var(--text-main);
-    padding-bottom: 90px; /* Space for the fixed player */
     overflow-x: hidden;
+}
+
+/* Authentic Top Gradient */
+.gradient-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 332px;
+    background: linear-gradient(180deg, rgba(29,66,40,1) 0%, rgba(18,18,18,1) 100%);
+    z-index: -1;
+}
+
+.main-wrapper {
+    padding-bottom: 100px; /* Space for the fixed player */
 }
 
 /* Header */
 .top-header {
-    padding: 40px 20px 20px;
-    text-align: center;
-    background: linear-gradient(to bottom, #1f4228, var(--bg-color));
+    padding: 60px 24px 20px;
+    max-width: 1300px;
+    margin: 0 auto;
 }
 
 .top-header h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
+    font-size: 3rem;
+    font-weight: 800;
     letter-spacing: -1px;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 24px;
 }
 
 /* Main Grid Layout */
 .content-container {
-    padding: 20px 40px;
-    max-width: 1200px;
+    padding: 0 24px 24px;
+    max-width: 1300px;
     margin: 0 auto;
 }
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    /* Default desktop: auto columns with a minimum width */
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     gap: 24px;
 }
 
-/* Album Cards */
+/* Spotify Card Styling */
 .album-card {
     background-color: var(--card-bg);
     padding: 16px;
     border-radius: 8px;
     transition: background-color 0.3s ease;
-    position: relative;
     cursor: pointer;
+    position: relative;
 }
 
 .album-card:hover {
     background-color: var(--card-hover);
+}
+
+.img-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 16px;
 }
 
 .album-card img {
@@ -69,29 +95,14 @@ body {
     aspect-ratio: 1/1;
     object-fit: cover;
     border-radius: 6px;
-    margin-bottom: 16px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.5); /* Heavy shadow under art */
 }
 
-.album-card h3 {
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 8px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.album-card p {
-    color: var(--text-sub);
-    font-size: 14px;
-}
-
-/* Spotify Style Green Play Button on Hover */
+/* Spotify Style Green Play Button */
 .play-btn {
     position: absolute;
-    bottom: 85px;
-    right: 24px;
+    bottom: 8px;
+    right: 8px;
     width: 48px;
     height: 48px;
     background-color: var(--accent-color);
@@ -107,64 +118,39 @@ body {
     box-shadow: 0 8px 8px rgba(0,0,0,0.3);
 }
 
+/* Only show play button if the card is playable */
 .album-card.playable:hover .play-btn {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* Lyrics / Message Panel Overlay */
-.lyrics-panel {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 100%;
-    max-width: 450px;
-    height: calc(100vh - 90px);
-    background-color: rgba(18, 18, 18, 0.95);
-    backdrop-filter: blur(15px);
-    padding: 40px;
-    transition: right 0.4s cubic-bezier(0.3, 0, 0.2, 1);
-    z-index: 100;
-    overflow-y: auto;
-    border-left: 1px solid #333;
-    box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+.play-btn:hover {
+    transform: translateY(0) scale(1.05) !important;
+    background-color: #1fdf64;
 }
 
-.lyrics-panel.active {
-    right: 0;
-}
-
-.close-btn {
-    position: absolute;
-    top: 20px;
-    right: 24px;
-    background: none;
-    border: none;
-    color: var(--text-main);
-    font-size: 32px;
-    cursor: pointer;
-    transition: color 0.2s;
-}
-
-.close-btn:hover {
-    color: var(--accent-color);
-}
-
-.lyrics-panel h2 {
-    margin-top: 20px;
-    margin-bottom: 30px;
-    color: var(--accent-color);
-    font-size: 24px;
-}
-
-.lyrics-content p {
-    margin-bottom: 24px;
-    line-height: 1.6;
+.album-card h3 {
     font-size: 16px;
-    color: #e0e0e0;
+    font-weight: 700;
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--text-main);
 }
 
-/* Bottom Player Bar */
+.album-card p {
+    color: var(--text-sub);
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* -------------------------------------
+   SPOTIFY PLAYER BAR 
+------------------------------------- */
 .player-bar {
     position: fixed;
     bottom: 0;
@@ -184,7 +170,7 @@ body {
     display: flex;
     align-items: center;
     width: 30%;
-    min-width: 200px;
+    min-width: 180px;
 }
 
 .now-playing-img {
@@ -192,24 +178,62 @@ body {
     height: 56px;
     border-radius: 4px;
     margin-right: 14px;
-    display: none; /* Hidden until song is selected */
+    display: none;
+}
+
+.song-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .song-info h4 {
     font-size: 14px;
     font-weight: 600;
+    margin-bottom: 2px;
 }
 
-.player-controls {
+.song-info p {
+    font-size: 11px;
+    color: var(--text-sub);
+}
+
+.heart-icon {
+    margin-left: 20px;
+    color: var(--text-sub);
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.heart-icon:hover {
+    color: var(--text-main);
+}
+
+/* Center Controls */
+.player-center {
+    width: 40%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 40%;
 }
 
-.empty-spacer {
-    width: 30%; /* Balances flex layout */
+.player-controls {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 8px;
+}
+
+.aux-btn {
+    color: var(--text-sub);
+    font-size: 16px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.aux-btn:hover {
+    color: var(--text-main);
 }
 
 .control-btn {
@@ -217,8 +241,8 @@ body {
     color: #000;
     border: none;
     border-radius: 50%;
-    width: 35px;
-    height: 35px;
+    width: 32px;
+    height: 32px;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -231,22 +255,197 @@ body {
     transform: scale(1.05);
 }
 
-/* Responsive Rules */
+.playback-bar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    gap: 8px;
+}
+
+.time {
+    font-size: 11px;
+    color: var(--text-sub);
+}
+
+.progress-bar, .volume-bar {
+    height: 4px;
+    background-color: #4d4d4d;
+    border-radius: 2px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.progress-bar:hover .progress, .volume-bar:hover .volume {
+    background-color: var(--accent-color);
+}
+
+.progress, .volume {
+    height: 100%;
+    background-color: #fff;
+    border-radius: 2px;
+}
+
+.progress { width: 0%; }
+.volume { width: 50%; }
+
+/* Right Controls */
+.player-right {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 16px;
+}
+
+.player-right .volume-bar {
+    width: 90px;
+}
+
+/* -------------------------------------
+   LYRICS PANEL 
+------------------------------------- */
+.lyrics-panel {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    max-width: 450px;
+    height: calc(100vh - 90px);
+    background-color: #1a1a1a;
+    padding: 0;
+    transition: right 0.4s cubic-bezier(0.3, 0, 0.2, 1);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    box-shadow: -10px 0 30px rgba(0,0,0,0.8);
+}
+
+.lyrics-panel.active {
+    right: 0;
+}
+
+.lyrics-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 24px 0;
+}
+
+.lyrics-header h2 {
+    color: var(--text-main);
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: var(--text-sub);
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: var(--text-main);
+}
+
+.lyrics-content {
+    padding: 24px;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+.lyrics-content p {
+    margin-bottom: 24px;
+    line-height: 1.5;
+    font-size: 24px;
+    font-weight: 700;
+    color: #6a6a6a;
+    transition: color 0.3s ease;
+}
+
+.lyrics-content p:first-child {
+    color: #fff; /* Highlights the first paragraph to look active */
+}
+
+/* -------------------------------------
+   MOBILE RESPONSIVENESS (PERFECT PROPORTIONS)
+------------------------------------- */
 @media (max-width: 768px) {
-    .content-container {
-        padding: 20px;
-    }
-    .grid-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .lyrics-panel {
-        width: 100%;
-        max-width: none;
-    }
-    .now-playing {
-        width: 60%;
-    }
-    .empty-spacer {
+    /* Hide non-essential player items on tablet/mobile */
+    .player-right, .aux-btn {
         display: none;
     }
-  }
+    .player-center {
+        width: 60%;
+    }
+    .now-playing {
+        width: 40%;
+    }
+    .playback-bar {
+        display: none; /* Hide progress bar on mobile to save space */
+    }
+}
+
+@media (max-width: 600px) {
+    .top-header {
+        padding: 40px 16px 16px;
+    }
+    .top-header h1 {
+        font-size: 2.2rem;
+    }
+    .content-container {
+        padding: 0 16px 16px;
+    }
+    
+    /* FORCE 2 COLUMNS ON MOBILE */
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+    
+    /* Scale down cards to fit screen beautifully */
+    .album-card {
+        padding: 10px;
+    }
+    .img-container {
+        margin-bottom: 10px;
+    }
+    .album-card h3 {
+        font-size: 13px;
+    }
+    .album-card p {
+        font-size: 11px;
+    }
+    .play-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 14px;
+        bottom: 4px;
+        right: 4px;
+    }
+
+    /* Shrink the player bar slightly for mobile */
+    .player-bar {
+        height: 70px;
+        padding: 0 12px;
+    }
+    .now-playing-img {
+        width: 44px;
+        height: 44px;
+        margin-right: 10px;
+    }
+    .song-info h4 {
+        font-size: 13px;
+    }
+    .heart-icon {
+        margin-left: 10px;
+    }
+    .lyrics-panel {
+        height: calc(100vh - 70px);
+    }
+    .lyrics-content p {
+        font-size: 18px;
+    }
+}
