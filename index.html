@@ -1,135 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Krishna ❤️ Jesu</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Krishna ❤️ Jesu Music</title>
+  <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
 
-<div class="sidebar">
-    <h1>♫ K&J</h1>
+<div class="app">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <h2>🎵 My Music</h2>
 
     <div class="menu">
-        <p>🏠 Home</p>
-        <p>🔍 Search</p>
-        <p>🎵 Your Library</p>
-        <p>❤️ Liked Songs</p>
-    </div>
-</div>
-
-<div class="main">
-
-    <div class="hero">
-        <h1>Krishna ❤️ Jesu</h1>
-        <p>3 Years Together • Forever To Go</p>
+      <div>Home</div>
+      <div>Search</div>
+      <div>Library</div>
     </div>
 
-    <h2>Albums For You</h2>
+    <div class="playlists">
+      <p>PLAYLISTS</p>
+      <div>❤️ Love Mix</div>
+      <div>🌙 Chill</div>
+      <div>🔥 Favorites</div>
+    </div>
+  </div>
 
+  <!-- MAIN -->
+  <div class="main">
+
+    <div class="header">
+      <h1>Krishna ❤️ Jesu</h1>
+      <p>Your personal music space</p>
+    </div>
+
+    <!-- 9 ALBUM COVERS -->
     <div class="albums">
 
-        <div class="album special" onclick="openAlbum()">
-            <img src="img1.jpg" alt="3 N Forever">
-            <h3>3 N Forever</h3>
-            <p>Special Anniversary Album</p>
-        </div>
-
-        <div class="album">
-            <img src="img2.jpg" alt="Midnight Memories">
-            <h3>Midnight Memories</h3>
-        </div>
-
-        <div class="album">
-            <img src="img3.jpg" alt="Golden Days">
-            <h3>Golden Days</h3>
-        </div>
-
-        <div class="album">
-            <img src="img4.jpg" alt="Dreamscape">
-            <h3>Dreamscape</h3>
-        </div>
-
-        <div class="album">
-            <img src="img5.jpg" alt="Heartbeat">
-            <h3>Heartbeat</h3>
-        </div>
-
-        <div class="album">
-            <img src="img6.jpg" alt="Our Story">
-            <h3>Our Story</h3>
-        </div>
-
-        <div class="album">
-            <img src="img7.jpg" alt="Forever Young">
-            <h3>Forever Young</h3>
-        </div>
-
-        <div class="album">
-            <img src="img8.jpg" alt="Love Notes">
-            <h3>Love Notes</h3>
-        </div>
-
-        <div class="album">
-            <img src="img9.jpg" alt="Endless">
-            <h3>Endless</h3>
-        </div>
+      <div class="album" style="background-image:url('img1.jpg')">Mix 1</div>
+      <div class="album" style="background-image:url('img2.jpg')">Mix 2</div>
+      <div class="album" style="background-image:url('img3.jpg')">Mix 3</div>
+      <div class="album" style="background-image:url('img4.jpg')">Mix 4</div>
+      <div class="album" style="background-image:url('img5.jpg')">Mix 5</div>
+      <div class="album" style="background-image:url('img6.jpg')">Mix 6</div>
+      <div class="album" style="background-image:url('img7.jpg')">Mix 7</div>
+      <div class="album" style="background-image:url('img8.jpg')">Mix 8</div>
+      <div class="album" style="background-image:url('img9.jpg')">Mix 9</div>
 
     </div>
 
+    <!-- SONG LIST (ONLY 1 SONG) -->
+    <div class="songs">
+      <h3>Song</h3>
+
+      <div class="song" onclick="playSong('Those_Eyes_-_New_West_(mp3.pm).mp3','Those Eyes - New West')">
+        💖 Those Eyes - New West
+      </div>
+
+    </div>
+
+  </div>
 </div>
 
-<div id="albumPage" class="hidden">
-
-    <div class="albumHeader">
-        <img src="img1.jpg" alt="Album Cover">
-        <div>
-            <h1>3 N Forever</h1>
-            <p>Krishna ❤️ Jesu</p>
-        </div>
-    </div>
-
-    <button class="playBtn" onclick="playSong()">▶ Play</button>
-
-    <div class="lyrics">
-
-        <h2>Message</h2>
-
-        <p>
-            Three years ago, I never imagined that someone so far away could become such an important part of my life.<br><br>
-
-            Through every call, every message, every late-night conversation, and every moment we missed being together, our love only grew stronger.<br><br>
-
-            Distance has never been easy, but you make every day worth it.<br><br>
-
-            Thank you for staying, understanding, supporting me, and loving me through all the ups and downs.<br><br>
-
-            You are my favorite person, my safe place, and the one I want beside me in every chapter of my life.<br><br>
-
-            No matter how many miles separate us today, my heart has always been with you and always will be.<br><br>
-
-            Here's to the beautiful memories we've created, the challenges we've overcome, and the future we're building together.<br><br>
-
-            I love you more than words can ever explain.<br><br>
-
-            Happy 3rd Anniversary, baby. ❤️
-        </p>
-
-    </div>
-
-</div>
-
+<!-- PLAYER -->
 <div class="player">
-    <div>🎵 Those Eyes - New West</div>
-
-    <audio id="audio" controls>
-        <source src="Those_Eyes_-_New_West_(mp3.pm).mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
+  <audio id="audio" controls></audio>
+  <div id="nowPlaying">Nothing playing</div>
 </div>
 
 <script src="script.js"></script>
-
 </body>
     </html>
