@@ -1,20 +1,8 @@
 const audio = document.getElementById("audio");
+const nowPlaying = document.getElementById("nowPlaying");
 
-function openAlbum(){
-
-document.getElementById("albumPage").classList.remove("hidden");
-
-audio.play();
-
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
-
-}
-
-function playSong(){
-
-audio.play();
-
+function playSong(file, title) {
+  audio.src = file;
+  audio.play();
+  nowPlaying.textContent = "Now Playing: " + title;
 }
