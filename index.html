@@ -1,75 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Krishna ❤️ Jesu Music</title>
-  <link rel="stylesheet" href="styles.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krishna ❤️ Jesu</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
+    
+    <header class="top-header">
+        <h1>Krishna ❤️ Jesu</h1>
+    </header>
 
-<div class="app">
+    <main class="content-container">
+        <div class="grid-container">
+            <div class="album-card playable" id="main-song">
+                <img src="img1.jpg" alt="3 n forever Cover" onerror="this.src='https://via.placeholder.com/200x200/181818/1DB954?text=img1.jpg'">
+                <div class="play-btn"><i class="fas fa-play"></i></div>
+                <h3>3 n forever</h3>
+                <p>Krishna ❤️ Jesu</p>
+            </div>
 
-  <!-- SIDEBAR -->
-  <div class="sidebar">
-    <h2>🎵 My Music</h2>
+            <div class="album-card">
+                <img src="img2.jpg" alt="Album Cover" onerror="this.src='https://via.placeholder.com/200x200/282828/ffffff?text=img2.jpg'">
+                <h3>Our Memories</h3>
+                <p>Krishna ❤️ Jesu</p>
+            </div>
+            <div class="album-card">
+                <img src="img3.jpg" alt="Album Cover" onerror="this.src='https://via.placeholder.com/200x200/282828/ffffff?text=img3.jpg'">
+                <h3>Late Night Calls</h3>
+                <p>Krishna ❤️ Jesu</p>
+            </div>
+            <div class="album-card">
+                <img src="img4.jpg" alt="Album Cover" onerror="this.src='https://via.placeholder.com/200x200/282828/ffffff?text=img4.jpg'">
+                <h3>Smiles & Laughs</h3>
+                <p>Krishna ❤️ Jesu</p>
+            </div>
+            <div class="album-card">
+                <img src="img5.jpg" alt="Album Cover" onerror="this.src='https://via.placeholder.com/200x200/282828/ffffff?text=img5.jpg'">
+                <h3>Distance Means Nothing</h3>
+                <p>Krishna ❤️ Jesu</p>
+            </div>
+            <div class="album-card">
+                <img src="img6.jpg" alt="Album Cover" onerror="this.src='https://via.placeholder.com/200x200/282828/ffffff?text=img6.jpg'">
+                <h3>My Safe Place</h3>
+                <p>Krishna ❤️ Jesu</p>
+            </div>
+            <div class="album-card">
+                <img src="img7.jpg" alt="Album Cover" onerror="this.src='https://via.placeholder.com/200x200/282828/ffffff?text=img7.jpg'">
+                <h3>Favorite Person</h3>
+                <p>Krishna ❤️ Jesu</p>
+            </div>
+            <div class="album-card">
+                <img src="img8.jpg" alt="Album Cover" onerror="this.src='https://via.placeholder.com/200x200/282828/ffffff?text=img8.jpg'">
+                <h3>Ups and Downs</h3>
+                <p>Krishna ❤️ Jesu</p>
+            </div>
+            <div class="album-card">
+                <img src="img9.jpg" alt="Album Cover" onerror="this.src='https://via.placeholder.com/200x200/282828/ffffff?text=img9.jpg'">
+                <h3>Next Chapter</h3>
+                <p>Krishna ❤️ Jesu</p>
+            </div>
+        </div>
+    </main>
 
-    <div class="menu">
-      <div>Home</div>
-      <div>Search</div>
-      <div>Library</div>
+    <div class="lyrics-panel" id="lyrics-panel">
+        <button class="close-btn" id="close-lyrics">&times;</button>
+        <h2>Happy 3rd Anniversary, baby.</h2>
+        <div class="lyrics-content">
+            <p>Three years ago, I never imagined that someone so far away could become such an important part of my life. Through every call, every message, every late-night conversation, and every moment we missed being together, our love only grew stronger.</p>
+            <p>Distance has never been easy, but you make every day worth it. Thank you for staying, understanding, supporting me, and loving me through all the ups and downs. You are my favorite person, my safe place, and the one I want beside me in every chapter of my life.</p>
+            <p>No matter how many miles separate us today, my heart has always been with you and always will be. Here's to the beautiful memories we've created, the challenges we've overcome, and the future we're building together.</p>
+            <p>I love you more than words can ever explain.</p>
+        </div>
     </div>
 
-    <div class="playlists">
-      <p>PLAYLISTS</p>
-      <div>❤️ Love Mix</div>
-      <div>🌙 Chill</div>
-      <div>🔥 Favorites</div>
-    </div>
-  </div>
+    <footer class="player-bar">
+        <div class="now-playing">
+            <img src="img1.jpg" alt="Now Playing" class="now-playing-img" id="player-img" onerror="this.src='https://via.placeholder.com/56x56/181818/1DB954?text=img'">
+            <div class="song-info">
+                <h4 id="player-title">Select a song</h4>
+            </div>
+        </div>
+        <div class="player-controls">
+            <button id="play-pause-btn" class="control-btn"><i class="fas fa-play"></i></button>
+        </div>
+        <div class="empty-spacer"></div>
+        
+        <audio id="audio-player" src="Those_Eyes_-_New_West_(mp3.pm).mp3"></audio>
+    </footer>
 
-  <!-- MAIN -->
-  <div class="main">
-
-    <div class="header">
-      <h1>Krishna ❤️ Jesu</h1>
-      <p>Your personal music space</p>
-    </div>
-
-    <!-- 9 ALBUM COVERS -->
-    <div class="albums">
-
-      <div class="album" style="background-image:url('img1.jpg')">Mix 1</div>
-      <div class="album" style="background-image:url('img2.jpg')">Mix 2</div>
-      <div class="album" style="background-image:url('img3.jpg')">Mix 3</div>
-      <div class="album" style="background-image:url('img4.jpg')">Mix 4</div>
-      <div class="album" style="background-image:url('img5.jpg')">Mix 5</div>
-      <div class="album" style="background-image:url('img6.jpg')">Mix 6</div>
-      <div class="album" style="background-image:url('img7.jpg')">Mix 7</div>
-      <div class="album" style="background-image:url('img8.jpg')">Mix 8</div>
-      <div class="album" style="background-image:url('img9.jpg')">Mix 9</div>
-
-    </div>
-
-    <!-- SONG LIST (ONLY 1 SONG) -->
-    <div class="songs">
-      <h3>Song</h3>
-
-      <div class="song" onclick="playSong('Those_Eyes_-_New_West_(mp3.pm).mp3','Those Eyes - New West')">
-        💖 Those Eyes - New West
-      </div>
-
-    </div>
-
-  </div>
-</div>
-
-<!-- PLAYER -->
-<div class="player">
-  <audio id="audio" controls></audio>
-  <div id="nowPlaying">Nothing playing</div>
-</div>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
-    </html>
+</html>
